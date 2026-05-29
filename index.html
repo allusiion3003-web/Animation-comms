@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Allusiion</title>
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -23,7 +24,6 @@
       overflow-x:hidden;
     }
 
-    /* FORCE TOUT EN BLANC + PAS DE SOULIGNEMENT */
     h1,h2,h3,h4,h5,p,span,div,a{
       color:#fff;
       text-decoration:none;
@@ -40,6 +40,7 @@
     }
 
     /* HERO */
+
     .hero{
       height:100vh;
       position:relative;
@@ -78,6 +79,7 @@
     .hero p{
       margin-top:20px;
       opacity:0.8;
+      line-height:1.6;
     }
 
     .buttons{
@@ -104,30 +106,34 @@
     }
 
     /* TITLES */
+
     .section-title{
       font-size:2.5rem;
       margin-bottom:50px;
       text-transform:uppercase;
       letter-spacing:2px;
+      text-align:center;
     }
 
-    /* SHOWREEL */
-    .showreel-grid{
+    /* REEL */
+
+    .reel-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
     }
 
     .clip{
-      border-radius:18px;
+      border-radius:20px;
       overflow:hidden;
       cursor:pointer;
       transition:0.3s;
       background:#111;
+      border:1px solid #ffffff10;
     }
 
     .clip:hover{
-      transform:scale(1.02);
+      transform:translateY(-6px);
     }
 
     .clip video{
@@ -135,7 +141,8 @@
       display:block;
     }
 
-    /* TIMELINE */
+    /* PROCESS */
+
     .timeline{
       display:flex;
       flex-wrap:wrap;
@@ -161,6 +168,7 @@
     }
 
     /* CONTACT */
+
     .contact{
       text-align:center;
     }
@@ -182,7 +190,7 @@
       background:#111;
       border-radius:999px;
       border:1px solid #ffffff20;
-      text-decoration:none;
+      transition:0.3s;
     }
 
     .contact-links a:hover{
@@ -197,7 +205,8 @@
       border-top:1px solid #ffffff10;
     }
 
-    /* MODAL (vidéo en grand) */
+    /* MODAL */
+
     #modal{
       position:fixed;
       inset:0;
@@ -220,6 +229,7 @@
 <body>
 
 <!-- HERO -->
+
 <section class="hero">
 
   <video autoplay muted loop playsinline>
@@ -229,6 +239,7 @@
   <div class="overlay"></div>
 
   <div class="hero-content">
+
     <h1>Allusiion</h1>
 
     <p>
@@ -237,19 +248,51 @@
     </p>
 
     <div class="buttons">
-      <a class="btn" href="#showreel">Mes animations</a>
+      <a class="btn" href="#commissions">Animation</a>
       <a class="btn" href="#contact">Contact</a>
     </div>
+
   </div>
 
 </section>
 
-<!-- SHEET COMMISSIONS -->
-<section id="Sheet commissions">
+<!-- ANIMATION REEL -->
 
-  <h2 class="section-title">Sheet commissions</h2>
+<section id="reel">
 
-  <div class="showreel-grid">
+  <h2 class="section-title">Animation Reel</h2>
+
+  <div class="reel-grid">
+
+    <div class="clip">
+      <video muted loop playsinline onclick="openModal(this)">
+        <source src="reel1.mp4">
+      </video>
+    </div>
+
+    <div class="clip">
+      <video muted loop playsinline onclick="openModal(this)">
+        <source src="reel2.mp4">
+      </video>
+    </div>
+
+    <div class="clip">
+      <video muted loop playsinline onclick="openModal(this)">
+        <source src="reel3.mp4">
+      </video>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- COMMISSIONS -->
+
+<section id="commissions">
+
+  <h2 class="section-title">Commission Sheet</h2>
+
+  <div class="reel-grid">
 
     <div class="clip">
       <video muted loop playsinline onclick="openModal(this)">
@@ -274,6 +317,7 @@
 </section>
 
 <!-- PROCESS -->
+
 <section>
 
   <h2 class="section-title">Process</h2>
@@ -291,6 +335,7 @@
 </section>
 
 <!-- CONTACT -->
+
 <section id="contact" class="contact">
 
   <h2>LET'S CREATE</h2>
@@ -306,12 +351,14 @@
   Frame by frame. Loop by loop.
 </footer>
 
-<!-- MODAL VIDEO -->
+<!-- MODAL -->
+
 <div id="modal" onclick="closeModal()">
   <video id="modalVideo" controls autoplay></video>
 </div>
 
 <script>
+
   const modal = document.getElementById("modal");
   const modalVideo = document.getElementById("modalVideo");
 
@@ -325,6 +372,7 @@
     modalVideo.pause();
     modalVideo.src = "";
   }
+
 </script>
 
 </body>
