@@ -98,11 +98,17 @@
       cursor:pointer;
       transition:0.3s;
       text-decoration:none;
+      display:inline-block;
     }
 
     .btn:hover{
       transform:translateY(-3px);
       background:#ffffff20;
+    }
+
+    .btn-pdf{
+      background:#ffffff22;
+      border-color:#ffffff66;
     }
 
     /* TITLES */
@@ -141,30 +147,26 @@
       display:block;
     }
 
-    /* PROCESS */
+    /* IMAGE CONTAINERS (PROCESS & TOS) */
 
-    .timeline{
+    .img-container{
       display:flex;
-      flex-wrap:wrap;
-      gap:20px;
       justify-content:center;
+      align-items:center;
+      width:100%;
     }
 
-    .step{
-      flex:1;
-      min-width:180px;
-      background:#101010;
-      padding:30px;
+    .section-img{
+      max-width:100%;
+      height:auto;
       border-radius:18px;
-      text-align:center;
       border:1px solid #ffffff10;
+      box-shadow:0 10px 30px rgba(0,0,0,0.5);
     }
 
-    .step span{
-      display:block;
-      font-size:0.9rem;
-      opacity:0.6;
-      margin-bottom:10px;
+    .catalog-cta{
+      text-align:center;
+      margin-top:40px;
     }
 
     /* CONTACT */
@@ -249,6 +251,7 @@
 
     <div class="buttons">
       <a class="btn" href="#commissions">Animation</a>
+      <a class="btn btn-pdf" href="catalogue.pdf" target="_blank">📄 Catalogue PDF</a>
       <a class="btn" href="#contact">Contact</a>
     </div>
 
@@ -314,22 +317,32 @@
 
   </div>
 
+  <div class="catalog-cta">
+    <a class="btn btn-pdf" href="catalogue.pdf" target="_blank">🔍 Voir le catalogue complet (PDF)</a>
+  </div>
+
 </section>
 
 <!-- PROCESS -->
 
-<section>
+<section id="process">
 
   <h2 class="section-title">Process</h2>
 
-  <div class="timeline">
+  <div class="img-container">
+    <img src="process.png" alt="Commission Process" class="section-img">
+  </div>
 
-    <div class="step"><span>01</span>Sketch</div>
-    <div class="step"><span>02</span>Animation</div>
-    <div class="step"><span>03</span>Cleanup</div>
-    <div class="step"><span>04</span>Rendering</div>
-    <div class="step"><span>05</span>Delivery</div>
+</section>
 
+<!-- TERMS OF SERVICE (TOS) -->
+
+<section id="tos">
+
+  <h2 class="section-title">Terms of Service</h2>
+
+  <div class="img-container">
+    <img src="tos.png" alt="Terms of Service" class="section-img">
   </div>
 
 </section>
@@ -341,7 +354,7 @@
   <h2>LET'S CREATE</h2>
 
   <div class="contact-links">
-    <a href="https://www.instagram.com/allumotion/">Instagram</a>
+    <a href="https://www.instagram.com/allumotion/" target="_blank">Instagram</a>
     <a href="mailto:allusiion3003@gmail.com">Email</a>
   </div>
 
