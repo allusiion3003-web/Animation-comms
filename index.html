@@ -156,6 +156,25 @@
       width:100%;
     }
 
+    .tos-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+      gap:30px;
+      width:100%;
+    }
+
+    .tos-card{
+      text-align:center;
+    }
+
+    .tos-card h3{
+      font-size:1.2rem;
+      margin-bottom:15px;
+      letter-spacing:1px;
+      opacity:0.9;
+      text-transform:uppercase;
+    }
+
     .section-img{
       max-width:100%;
       height:auto;
@@ -341,8 +360,18 @@
 
   <h2 class="section-title">Terms of Service</h2>
 
-  <div class="img-container">
-    <img src="tos.png" alt="Terms of Service" class="section-img">
+  <div class="tos-grid">
+
+    <div class="tos-card">
+      <h3>Animation TOS</h3>
+      <img src="tos-animation.png" alt="Animation Terms of Service" class="section-img">
+    </div>
+
+    <div class="tos-card">
+      <h3>Illustration TOS</h3>
+      <img src="tos-illustration.png" alt="Illustration Terms of Service" class="section-img">
+    </div>
+
   </div>
 
 </section>
