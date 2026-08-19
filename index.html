@@ -121,7 +121,7 @@
       text-align:center;
     }
 
-    /* REEL */
+    /* REEL & COMMISSIONS */
 
     .reel-grid{
       display:grid;
@@ -147,45 +147,13 @@
       display:block;
     }
 
-    /* IMAGE CONTAINERS (PROCESS & TOS) */
+    /* TOS BUTTONS */
 
-    .img-container{
+    .tos-buttons{
       display:flex;
       justify-content:center;
-      align-items:center;
-      width:100%;
-    }
-
-    .tos-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-      gap:30px;
-      width:100%;
-    }
-
-    .tos-card{
-      text-align:center;
-    }
-
-    .tos-card h3{
-      font-size:1.2rem;
-      margin-bottom:15px;
-      letter-spacing:1px;
-      opacity:0.9;
-      text-transform:uppercase;
-    }
-
-    .section-img{
-      max-width:100%;
-      height:auto;
-      border-radius:18px;
-      border:1px solid #ffffff10;
-      box-shadow:0 10px 30px rgba(0,0,0,0.5);
-    }
-
-    .catalog-cta{
-      text-align:center;
-      margin-top:40px;
+      gap:20px;
+      flex-wrap:wrap;
     }
 
     /* CONTACT */
@@ -336,22 +304,6 @@
 
   </div>
 
-  <div class="catalog-cta">
-    <a class="btn btn-pdf" href="catalogue.pdf" target="_blank">📄 Drawings commission sheets (pdf)</a>
-  </div>
-
-</section>
-
-<!-- PROCESS -->
-
-<section id="process">
-
-  <h2 class="section-title">Process</h2>
-
-  <div class="img-container">
-    <img src="process.png" alt="Commission Process" class="section-img">
-  </div>
-
 </section>
 
 <!-- TERMS OF SERVICE (TOS) -->
@@ -360,18 +312,9 @@
 
   <h2 class="section-title">Terms of Service</h2>
 
-  <div class="tos-grid">
-
-    <div class="tos-card">
-      <h3>Animation TOS</h3>
-      <img src="tos-animation.png" alt="Animation Terms of Service" class="section-img">
-    </div>
-
-    <div class="tos-card">
-      <h3>Illustration TOS</h3>
-      <img src="tos-illustration.png" alt="Illustration Terms of Service" class="section-img">
-    </div>
-
+  <div class="tos-buttons">
+    <a class="btn btn-pdf" href="tos-animation.pdf" target="_blank">📄 Animation TOS (PDF)</a>
+    <a class="btn btn-pdf" href="tos-illustration.pdf" target="_blank">📄 Illustration TOS (PDF)</a>
   </div>
 
 </section>
