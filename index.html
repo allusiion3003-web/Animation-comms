@@ -199,7 +199,7 @@
       border-top:1px solid #ffffff10;
     }
 
-    /* MODAL */
+    /* MODAL VIDEO */
 
     #modal{
       position:fixed;
@@ -218,6 +218,54 @@
       max-height:80vh;
       border-radius:12px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    }
+
+    /* MODAL PDF */
+
+    #pdfModal{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.92);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:1000;
+      padding:15px;
+    }
+
+    .pdf-box{
+      position:relative;
+      width:100%;
+      max-width:900px;
+      height:85vh;
+      background:#111;
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.2);
+    }
+
+    .pdf-box iframe{
+      width:100%;
+      height:100%;
+      border:none;
+    }
+
+    .close-pdf{
+      position:absolute;
+      top:10px;
+      right:10px;
+      background:rgba(0, 0, 0, 0.8);
+      color:white;
+      border:1px solid rgba(255,255,255,0.4);
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      cursor:pointer;
+      z-index:10;
+      font-size:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
   </style>
@@ -246,7 +294,7 @@
 
     <div class="buttons">
       <a class="btn" href="#commissions">Animation</a>
-      <a class="btn btn-pdf" href="https://docs.google.com/viewer?url=https://allusiion3003-web.github.io/Animation-comms/catalog.pdf&embedded=true" target="_blank">📄 Drawings commission sheets (pdf)</a>
+      <button class="btn btn-pdf" onclick="openPdfModal('catalog.pdf')">📄 Drawings commission sheets (pdf)</button>
       <a class="btn" href="#contact">Contact</a>
     </div>
 
@@ -321,8 +369,8 @@
   <h2 class="section-title">Terms of Service</h2>
 
   <div class="tos-buttons">
-    <a class="btn btn-pdf" href="https://docs.google.com/viewer?url=https://allusiion3003-web.github.io/Animation-comms/tos-animation.pdf&embedded=true" target="_blank">📄 Animation TOS (PDF)</a>
-    <a class="btn btn-pdf" href="https://docs.google.com/viewer?url=https://allusiion3003-web.github.io/Animation-comms/tos-illustration.pdf&embedded=true" target="_blank">📄 Illustration TOS (PDF)</a>
+    <button class="btn btn-pdf" onclick="openPdfModal('tos-animation.pdf')">📄 Animation TOS (PDF)</button>
+    <button class="btn btn-pdf" onclick="openPdfModal('tos-illustration.pdf')">📄 Illustration TOS (PDF)</button>
   </div>
 
 </section>
@@ -344,14 +392,24 @@
   Frame by frame. Loop by loop.
 </footer>
 
-<!-- MODAL -->
+<!-- MODAL VIDEO -->
 
 <div id="modal" onclick="closeModal()">
   <video id="modalVideo" controls playsinline webkit-playsinline></video>
 </div>
 
+<!-- MODAL PDF -->
+
+<div id="pdfModal" onclick="closePdfModal()">
+  <div class="pdf-box" onclick="event.stopPropagation()">
+    <button class="close-pdf" onclick="closePdfModal()">✕</button>
+    <iframe id="pdfFrame" src=""></iframe>
+  </div>
+</div>
+
 <script>
 
+  // MODAL VIDEO
   const modal = document.getElementById("modal");
   const modalVideo = document.getElementById("modalVideo");
 
@@ -366,6 +424,26 @@
     modal.style.display = "none";
     modalVideo.pause();
     modalVideo.src = "";
+  }
+
+  // MODAL PDF
+  function openPdfModal(pdfFilename){
+    const pdfModal = document.getElementById("pdfModal");
+    const pdfFrame = document.getElementById("pdfFrame");
+    
+    // URL du PDF hébergé
+    const pdfUrl = "https://allusiion3003-web.github.io/Animation-comms/" + pdfFilename;
+    
+    // Intégration dans le lecteur web
+    pdfFrame.src = "https://docs.google.com/gview?url=" + encodeURIComponent(pdfUrl) + "&embedded=true";
+    pdfModal.style.display = "flex";
+  }
+
+  function closePdfModal(){
+    const pdfModal = document.getElementById("pdfModal");
+    const pdfFrame = document.getElementById("pdfFrame");
+    pdfModal.style.display = "none";
+    pdfFrame.src = "";
   }
 
 </script>
